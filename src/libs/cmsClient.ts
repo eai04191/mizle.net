@@ -29,7 +29,11 @@ export function createCustomFetch({ tags }: { tags: string[] }): typeof fetch {
     };
 }
 
-export function createClient({ customFetch }: { customFetch: typeof fetch }) {
+export function createClient({
+    customFetch = fetch,
+}: {
+    customFetch?: typeof fetch;
+}) {
     return SDKcreateClient<Endpoints>({
         serviceDomain: config.env.MICROCMS_SERVICE_DOMAIN,
         apiKey: config.env.MICROCMS_API_KEY,

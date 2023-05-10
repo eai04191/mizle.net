@@ -2,9 +2,12 @@
 
 import { Schema } from "@/libs/cmsClient";
 
-export default function ScrapCard({ scrap }: { scrap: Schema["scraps"] }) {
-    const { id, content, createdAt, title, updatedAt, publishedAt, revisedAt } =
-        scrap;
+export default function ScrapCard({
+    scrap,
+}: {
+    scrap: Omit<Schema["scraps"], "content">;
+}) {
+    const { id, title, updatedAt } = scrap;
 
     const formatedDate = new Intl.DateTimeFormat("ja-JP", {
         dateStyle: "medium",

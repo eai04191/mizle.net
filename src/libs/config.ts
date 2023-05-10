@@ -1,4 +1,9 @@
-const envKeys = ["MICROCMS_SERVICE_DOMAIN", "MICROCMS_API_KEY"] as const;
+const envKeys = [
+    "MICROCMS_SERVICE_DOMAIN",
+    "MICROCMS_API_KEY",
+    "REVALIDATE_SECRET",
+    "DRAFT_SECRET",
+] as const;
 
 type Env = {
     [key in (typeof envKeys)[number]]: string;

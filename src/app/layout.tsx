@@ -1,5 +1,9 @@
 import "./globals.css";
+
+import clsx from "clsx";
 import { Inter } from "next/font/google";
+
+import Header from "./components/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,8 +18,13 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="en">
-            <body className={inter.className}>{children}</body>
+        <html lang="ja" className="">
+            <body className={clsx([inter.className, ""])}>
+                <div className="mx-auto w-full min-w-[20rem] max-w-7xl">
+                    <Header />
+                    {children}
+                </div>
+            </body>
         </html>
     );
 }
